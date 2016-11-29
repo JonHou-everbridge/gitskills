@@ -87,7 +87,16 @@ Git鼓励大量使用分支：
 删除分支：git branch -d <name>
 
 
-如果两个分支都有修改的话merge会有冲突，先解决冲突再提交，提交后合并就已经完成了
+如果两个分支都有修改的话merge会有冲突
+Git tracks changes of files.
+<<<<<<< HEAD
+Creating a new branch is quick & simple.
+=======
+Creating a new branch is quick AND simple.
+>>>>>>> feature1
+
+Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容
+先解决冲突再提交，提交后合并就已经完成了
 使用git log --graph 可以看到分支合并图
 
 小结
