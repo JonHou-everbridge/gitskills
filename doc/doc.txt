@@ -1,0 +1,56 @@
+this file will show you some git skills
+
+
+windows使用git时出现：warning: LF will be replaced by CRLF
+
+windows中的换行符为 CRLF， 而在Linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：
+[plain] view plain copy 在CODE上查看代码片派生到我的代码片
+$ rm -rf .git  // 删除.git  
+$ git config --global core.autocrlf false  //禁用自动转换    
+
+然后重新执行：
+[plain] view plain copy 在CODE上查看代码片派生到我的代码片
+$ git init    
+$ git add .  
+
+
+
+git add  文件
+git commit file -m "desc"
+git log  
+git reflog
+
+git reset --hard 版本号 工作区回退倒一个版本
+
+git reset HEAD 文件  可以把暂存区的修改撤销掉（unstage），重新放回工作区：
+
+git checkout -- 文件  --很重要，没有--，就变成了“切换到另一个分支”的命令
+
+命令git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
+
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+总之，就是让这个文件回到最近一次git commit或git add时的状态。
+
+git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”
+
+
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+
+下一步是用命令git clone克隆一个本地库
+
+git clone git@github.com:JonHou-everbridge/gitskills.git
+
+小结
+
+要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。
+
+Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。
+
