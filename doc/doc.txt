@@ -143,6 +143,8 @@ $ git clone --depth=1 https://github.com/bcit-ci/CodeIgniter.git
 
 $ git fetch --unshallow
 
+mager test
+
 
 
 pull requests
