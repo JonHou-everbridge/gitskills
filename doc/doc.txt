@@ -144,3 +144,9 @@ $ git clone --depth=1 https://github.com/bcit-ci/CodeIgniter.git
 $ git fetch --unshallow
 
 
+
+pull requests
+
+尝试不适用fork的情况下，创建一个新版本，然后提交，在gitsub上进行 pull requests
+
+
