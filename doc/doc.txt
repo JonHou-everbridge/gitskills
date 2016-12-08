@@ -149,4 +149,5 @@ pull requests
 
 尝试不适用fork的情况下，创建一个新版本，然后提交，在gitsub上进行 pull requests
 
+git push origin branch-name
 
