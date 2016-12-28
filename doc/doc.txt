@@ -212,7 +212,5 @@ pick 62eed47 Fix something from the previous commit
 如过没有成功合并使用
 git rebase --abort   回退rebase
 
-1
-2
-3
+
 
