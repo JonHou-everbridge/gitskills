@@ -213,6 +213,7 @@ pick 62eed47 Fix something from the previous commit
 git rebase --abort   回退rebase
 
 
+
 修改 commit message
 git commit --amend
 
@@ -239,5 +240,6 @@ git show stash@{0} # see the last stash
 git stash pop      # apply last stash and remove it from the list
 
 git stash --help   # for more info
+
 
 
