@@ -147,7 +147,7 @@ Note:
 
 本地新建的分支如果不推送到远程，对其他人就是不可见的；
 
-从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+从本地推送分支，使用git push origin local—-branch-name:origin-branch-name，如果推送失败，先用git pull抓取远程的新提交；
 
 在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
 
@@ -242,4 +242,44 @@ git stash pop      # apply last stash and remove it from the list
 git stash --help   # for more info
 
 
+
+----------- diff 显示修改的文件列表
+
+Git diff branch1 branch2 --stat
+
+加上 --stat 是显示文件列表, 否则是文件内容diff
+
+git diff --name-status HEAD~2 HEAD~3
+
+git diff <commit> <commit>
+上面的 <commit> 表示提交生成的 hash 串, 例如：
+
+git diff b45ba47d1b297217e3ec6a3ab0f61716a8d6ecbc c244d0bf06d56ec86aaedeefa5dcd84dd9febc60
+一般来说，通过 hash 串的前 4～6 位就可以区分，所示可以简写为：
+
+git diff b45b 355e
+
+查询某个人的所有提交
+$ git log --author="JonHou-everbridge" >> /d/mycommit.txt
+
+#查询某个提交的内容
+git show hashNumberOfCommit
+#查看提交内容
+git whatchanged
+
+
+##################
+现在有两个分支，分别为分支A、分支B。每个分支上都有若干次提交；
+分支A的提交commits有 a1, a2, a3, a4, a5，一共有五次提交；
+分支B的提交commits有 b1, b2, b3, b4, b5，一共有五次提交；
+当前位于分支A。
+
+注：以上10次提交的hash值不一样。
+
+请问：怎么只拉取分支B的 b2, b3, b4 提交节点到 分支A？
+
+要求，在拉取到分支A后，必须保留原来分支B上的提交信息。
+
+在A分支上执行
+git cherry-pick <commit_id>
 
